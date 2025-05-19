@@ -1,3 +1,3 @@
 # Interpreting Machine Learning Pipelines Produced by Evolutionary AutoML for Biochemical Property Prediction
-### By Alex G. C. de Sá, Gisele L. Pappa, Alex A. Freitas and David B. Ascher
-### Paper accepted for the workshop [Evolutionary Computing and Explainable Artificial Intelligence](https://ecxai.github.io/ecxai/workshop-2025) at the GECCO conference.
+### By [Alex G. C. de Sá](https://scholar.google.com/citations?user=K572cZ0AAAAJ), [Gisele L. Pappa](https://scholar.google.com/citations?user=C_0ZLuYAAAAJ), [Alex A. Freitas](https://scholar.google.com/citations?user=NEP3RPYAAAAJ&hl=en) and [David B. Ascher](https://scholar.google.co.uk/citations?user=7KrAVc0AAAAJ&hl=en)
+### Code for the paper accepted for the workshop [Evolutionary Computing and Explainable Artificial Intelligence](https://ecxai.github.io/ecxai/workshop-2025) at the [GECCO conference](https://gecco-2025.sigevo.org/HomePage).
