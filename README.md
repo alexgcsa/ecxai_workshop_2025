@@ -48,53 +48,29 @@ conda deactivate
 ```
 
 
-### How to use the proposed AutoML method?
+## 📖 How to use the proposed AutoML method?
 
 After activating automl_biochem environment, run:
 
 ```bash
-python automl_biochem.py training_file.csv testing_file.csv grammar -s seed_number -m metric -e exp_name -t time2run
+python automl_biochem.py training_file.csv testing_file.csv grammar
 ```
 
 E.g., using:
 
 * "datasets/01_caco2_train.csv" as the training file.csv
 * "datasets/01_caco2_blindtest.csv" as the testing file.csv
-* "." as the output directory (output_dir)
+* "grammar/automl.bnf" as the grammar defining the search space
+
+
+
+```bash
+python automl_biochem.py datasets/01_caco2_train.csv datasets/01_caco2_blindtest.csv grammar/automl.bnf
+```
 
 
 
 
-
-Optional parameters can also be used:
-
-* population size (pop_size). Default value: 30.
-* crossover rate (xover_rate). Default value: 0.9.
-* mutation rate (mut_rate). Default value: 0.1.
-* time to run the AutoML method (time_budget_min). Default value: 60 (min).
-* time to run each algorithm/pipeline (time_budget_minutes_alg_eval). Default value: 5 (min).
-* Random seed (seed). Default value: 42.
-* Number of cores (num_cores). Default value: 1.
-
-
-`python automl4pk.py datasets/01_caco2_train.csv datasets/01_caco2_blindtest.csv . -pop_size 30 -xover_rate 0.9 -mut_rate 0.1 -time_budget_min 60 -time_budget_minutes_alg_eval 5 -seed 42 -num_cores 1`
-
-
-
-
-
-
-
-
-
-
-## 📖 Usage
-
-Once the environment is set up, you can run the provided notebooks and scripts to reproduce results or start new experiments.
-
-## 🧪 Requirements
-
-All required dependencies are listed in `requirements.yml`. The environment includes packages for data processing, machine learning, and biochemical analysis.
 
 ## 📬 Contact
 

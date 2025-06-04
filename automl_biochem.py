@@ -29,7 +29,6 @@ from pyAgrum.skbn import BNClassifier
 import pyAgrum.skbn._MBCalcul as mbcalcul
 
 import pyAgrum as gum
-import pyAgrum.lib.notebook as gnb
 
 warnings.filterwarnings("ignore")
 
@@ -580,8 +579,8 @@ class ScalingTransformer:
 
 
 class GrammarBasedGP:
-    def __init__(self, grammar, training_dir, testing_dir, fitness_cache={}, num_cores=20, time_budget_minutes_alg_eval = 5, 
-                 population_size=100, max_generations=100, max_time=60, mutation_rate=0.15, crossover_rate=0.8, 
+    def __init__(self, grammar, training_dir, testing_dir, fitness_cache={}, num_cores=20, time_budget_minutes_alg_eval = 1, 
+                 population_size=100, max_generations=10, max_time=60, mutation_rate=0.15, crossover_rate=0.8, 
                  crossover_mutation_rate=0.05, elitism_size=1, fitness_metric="mcc", 
                  experiment_name = "expABC", stopping_criterion = "time", seed=0):
         self.grammar = grammar
@@ -931,7 +930,7 @@ class GrammarBasedGP:
                 fcntl.flock(f, fcntl.LOCK_EX)  # Lock the file
                 f.write("Error on pipeline - exceeded time budget" + "\n")
                 f.write(pipeline_string + "\n")
-                f.write(str(e) + "\n"  + "\n")
+                f.write(str(f) + "\n"  + "\n")
                 fcntl.flock(f, fcntl.LOCK_UN)  # Unlock the file              
             fitness_value = fitness_value * 0.7  # Set fitness value to zero if time budget exceeded
        
@@ -1463,7 +1462,7 @@ if __name__ == "__main__":
     parser.add_argument("-s", "--seed", type=int, help="The seed", default=1) 
     parser.add_argument("-m", "--metric", type=str, help="The metric to be used during biochemical property predicion optimisation procedure", default="auc")
     parser.add_argument("-e", "--exp_name", type=str, help="The name of the experiment", default="Exp_ADMET")
-    parser.add_argument("-t", "--time", type=int, help="Time in minutes to run the method", default=60)
+    parser.add_argument("-t", "--time", type=int, help="Time in minutes to run the method", default=5)
     
     # Parse arguments
     args = parser.parse_args()
