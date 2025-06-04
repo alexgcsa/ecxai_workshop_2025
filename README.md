@@ -14,9 +14,9 @@ This repository contains the code and resources for Evolutionary AutoML for Bioc
 ## 📦 Project Structure
 
 ```
-├── data/                 # Raw and processed datasets
-├── notebooks/            # Jupyter notebooks for experiments
-├── scripts/              # Scripts for data processing and modeling
+├── datasets/             # Raw and processed datasets for biochemical property prediction
+├── grammar/              # The context-free grammar (CFG) describing the AutoML search space in a Backus–Naur form (.bnf) file.
+├── automl_biochem.py     # The Python code implementing the evolutionary AutoML method (i.e., Bayesian Optimisation Algorithm) for biochemical property prediction
 ├── requirements.yml      # Conda environment specification
 └── README.md             # Project documentation
 ```
