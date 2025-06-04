@@ -6,29 +6,33 @@ import time
 import multiprocessing
 import pandas as pd
 import numpy as np
+import warnings
+import argparse
+import fcntl
+import os
+from datetime import datetime
+import pandas as pd
+
 from sklearn.preprocessing import Normalizer, MaxAbsScaler, MinMaxScaler, RobustScaler, StandardScaler
 from sklearn.feature_selection import VarianceThreshold, SelectPercentile, SelectFpr, SelectFwe, SelectFdr, chi2, f_classif, RFE
-import warnings
 from sklearn.ensemble import ExtraTreesClassifier, AdaBoostClassifier, RandomForestClassifier, GradientBoostingClassifier
 from sklearn.tree import DecisionTreeClassifier, ExtraTreeClassifier
 from sklearn.svm import SVC, NuSVC
 from sklearn.neural_network import MLPClassifier
 from xgboost import XGBClassifier
-warnings.filterwarnings("ignore")
+
 from sklearn.metrics import make_scorer, matthews_corrcoef, roc_auc_score, recall_score, average_precision_score, precision_score, accuracy_score
 from sklearn.model_selection import cross_val_score, StratifiedKFold
-from datetime import datetime
-import argparse
-import fcntl
-import os
+
+
 from pyAgrum.skbn import BNClassifier
 import pyAgrum.skbn._MBCalcul as mbcalcul
-import pandas as pd
+
 import pyAgrum as gum
 import pyAgrum.lib.notebook as gnb
 
-pd.set_option('display.max_columns', None)
-pd.set_option('display.max_rows', None)
+warnings.filterwarnings("ignore")
+
 
 class BNFGrammar:
     def __init__(self):
