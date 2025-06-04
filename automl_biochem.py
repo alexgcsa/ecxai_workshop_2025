@@ -1461,7 +1461,7 @@ if __name__ == "__main__":
     parser.add_argument("testing_dir", type=str, help="Directory to the training dataset.")
     parser.add_argument("grammar_dir", type=str, help="Directory to the grammar.")
     parser.add_argument("-s", "--seed", type=int, help="The seed", default=1) 
-    parser.add_argument("-m", "--metric", type=str, help="The metric to be used during Auto-ADMET optimisation procedure", default="auc")
+    parser.add_argument("-m", "--metric", type=str, help="The metric to be used during biochemical property predicion optimisation procedure", default="auc")
     parser.add_argument("-e", "--exp_name", type=str, help="The name of the experiment", default="Exp_ADMET")
     parser.add_argument("-t", "--time", type=int, help="Time in minutes to run the method", default=60)
     

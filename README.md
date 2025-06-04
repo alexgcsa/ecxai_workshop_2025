@@ -2,7 +2,7 @@
 ### By [Alex G. C. de Sá](https://scholar.google.com/citations?user=K572cZ0AAAAJ), [Gisele L. Pappa](https://scholar.google.com/citations?user=C_0ZLuYAAAAJ), [Alex A. Freitas](https://scholar.google.com/citations?user=NEP3RPYAAAAJ&hl=en) and [David B. Ascher](https://scholar.google.co.uk/citations?user=7KrAVc0AAAAJ&hl=en)
 ### Code for the paper accepted for the workshop [Evolutionary Computing and Explainable Artificial Intelligence](https://ecxai.github.io/ecxai/workshop-2025) at the [GECCO conference](https://gecco-2025.sigevo.org/HomePage).
 
-
+# 
 
 
 ## AutoML for Biochemical Property Prediction
@@ -46,6 +46,47 @@ conda activate automl_biochem
 ```bash
 conda deactivate
 ```
+
+
+### How to use the proposed AutoML method?
+
+After activating automl_biochem environment, run:
+
+```bash
+python automl_biochem.py training_file.csv testing_file.csv grammar -s seed_number -m metric -e exp_name -t time2run
+```
+
+E.g., using:
+
+* "datasets/01_caco2_train.csv" as the training file.csv
+* "datasets/01_caco2_blindtest.csv" as the testing file.csv
+* "." as the output directory (output_dir)
+
+
+
+
+
+Optional parameters can also be used:
+
+* population size (pop_size). Default value: 30.
+* crossover rate (xover_rate). Default value: 0.9.
+* mutation rate (mut_rate). Default value: 0.1.
+* time to run the AutoML method (time_budget_min). Default value: 60 (min).
+* time to run each algorithm/pipeline (time_budget_minutes_alg_eval). Default value: 5 (min).
+* Random seed (seed). Default value: 42.
+* Number of cores (num_cores). Default value: 1.
+
+
+`python automl4pk.py datasets/01_caco2_train.csv datasets/01_caco2_blindtest.csv . -pop_size 30 -xover_rate 0.9 -mut_rate 0.1 -time_budget_min 60 -time_budget_minutes_alg_eval 5 -seed 42 -num_cores 1`
+
+
+
+
+
+
+
+
+
 
 ## 📖 Usage
 
