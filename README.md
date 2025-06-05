@@ -53,15 +53,15 @@ conda deactivate
 After activating automl_biochem environment, run:
 
 ```bash
-python automl_biochem.py training_file.csv testing_file.csv grammar
+python automl_biochem.py training_file.csv testing_file.csv grammar output_directory
 ```
 
 E.g., using:
 
 * "datasets/01_caco2_train.csv" as the training file.csv
 * "datasets/01_caco2_blindtest.csv" as the testing file.csv
-* "grammar/automl.bnf" as the grammar defining the search space
-
+* "grammar/automl.bnf" as the grammar defining the AutoML search space
+* "." as the output directory
 
 
 ```bash

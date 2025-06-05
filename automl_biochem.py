@@ -1,4 +1,7 @@
-from src.boa import *
+import argparse
+import random
+
+from src.grammar_boa_gp import GrammarBayesOptGeneticfProgAlgorithm,  BNFGrammar
 
 
 
@@ -6,10 +9,13 @@ from src.boa import *
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="A simple argument parser example")
 
-    # Add arguments
-    parser.add_argument("training_dir", type=str, help="Directory to the training dataset.")
-    parser.add_argument("testing_dir", type=str, help="Directory to the training dataset.")
-    parser.add_argument("grammar_dir", type=str, help="Directory to the grammar.")
+    # Mandatory arguments
+    parser.add_argument("training_path", type=str, help="Path to the training dataset.")
+    parser.add_argument("testing_path", type=str, help="Path to the training dataset.")
+    parser.add_argument("grammar_path", type=str, help="Path to the grammar defining the AutoML search space.")
+    parser.add_argument("output_dir", type=str, help="Output directory.")
+    
+    # Optional arguments 
     parser.add_argument("-s", "--seed", type=int, help="The seed", default=1) 
     parser.add_argument("-m", "--metric", type=str, help="The metric to be used during biochemical property predicion optimisation procedure", default="auc")
     parser.add_argument("-e", "--exp_name", type=str, help="The name of the experiment", default="Exp_ADMET")
@@ -17,9 +23,10 @@ if __name__ == "__main__":
     
     # Parse arguments
     args = parser.parse_args()
-    training_dir = args.training_dir
-    testing_dir = args.training_dir
-    grammar_dir = args.grammar_dir
+    training_path = args.training_path
+    testing_path = args.training_path
+    grammar_path = args.grammar_path
+    
     seed = args.seed
     metric = args.metric
     exp_name = args.exp_name
@@ -28,7 +35,7 @@ if __name__ == "__main__":
     random.seed(seed)  # For reproducibility
 
     # Define grammar
-    with open(grammar_dir, "r") as file:
+    with open(grammar_path, "r") as file:
         grammar_text = file.read()
 
     # Load grammar
@@ -36,7 +43,5 @@ if __name__ == "__main__":
     grammar.load_grammar(grammar_text)
 
     # Run GGP
-    ggp = GrammarBasedGP(grammar, training_dir, testing_dir, fitness_metric=metric, experiment_name=exp_name, seed=seed, max_time=max_time)
+    ggp = GrammarBayesOptGeneticfProgAlgorithm(grammar, training_path, testing_path, fitness_metric=metric, experiment_name=exp_name, seed=seed, max_time=max_time)
     best_program = ggp.evolve()
-    
- 

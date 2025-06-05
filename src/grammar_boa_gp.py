@@ -1,4 +1,3 @@
-import random
 import math
 from collections import defaultdict
 from copy import deepcopy
@@ -7,7 +6,7 @@ import multiprocessing
 import pandas as pd
 import numpy as np
 import warnings
-import argparse
+import random
 import fcntl
 import os
 from datetime import datetime
@@ -579,7 +578,7 @@ class ScalingTransformer:
         
 
 
-class GrammarBasedGP:
+class GrammarBayesOptGeneticfProgAlgorithm:
     def __init__(self, grammar, training_dir, testing_dir, fitness_cache={}, num_cores=20, time_budget_minutes_alg_eval = 1, 
                  population_size=100, max_generations=10, max_time=60, mutation_rate=0.15, crossover_rate=0.8, 
                  crossover_mutation_rate=0.05, elitism_size=1, fitness_metric="mcc", 
