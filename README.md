@@ -65,7 +65,7 @@ E.g., using:
 
 
 ```bash
-python automl_biochem.py datasets/01_caco2_train.csv datasets/01_caco2_blindtest.csv grammar/automl.bnf
+python automl_biochem.py datasets/01_caco2_train.csv datasets/01_caco2_blindtest.csv grammar/automl.bnf .
 ```
 
 

@@ -1,7 +1,8 @@
 import argparse
 import random
 
-from src.grammar_boa_gp import GrammarBayesOptGeneticfProgAlgorithm,  BNFGrammar
+from src.grammar_boa_gp import GrammarBayesOptGeneticfProgAlgorithm
+from src.bnf_grammar_parser import BNFGrammar
 
 
 
