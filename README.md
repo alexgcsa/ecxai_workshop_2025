@@ -69,7 +69,27 @@ python automl_biochem.py datasets/01_caco2_train.csv datasets/01_caco2_blindtest
 ```
 
 
+Other parameters are available, including:
 
+* "-s": define the seed and control the method's pseudorandom variables. Default: 1.
+* "-m": define the optimisation metric to be used. Options: "auc", "mcc", "recall", "precision", "auprc", "accuracy". Default: "auc".
+* "-e": define the experiment name. Default: "Exp_ADMET".
+* "-t": define the time budget (in minutes) to run the method. Default: 5 (min).
+* "-n": define the number of cores to run the evolutionary AutoML method. Default: 20.
+* "-ta": define the time budget (in minutes) to run each individual (i.e., each ML pipeline). Default: 1 (min).
+* "-p": define the population size. Default: 100.
+* "-mr": define the mutation rate. Default: 0.15.
+* "-cr": define the crossover rate. Default: 0.80.
+* "-cmr": define the rate on applying crossover followed by mutation. Default: 0.05.
+* "-es": define the elitism size. Default: 1.
+
+
+To run with all options set, you would need to:
+
+
+```bash
+python automl_biochem.py datasets/01_caco2_train.csv datasets/01_caco2_blindtest.csv grammar/automl.bnf . -s 1 -m auc -e Exp_ADMET -t 5 -n 20 -ta 1 -p 100 -mr 0.15 -cr 0.80 -cmr 0.05 -es 1
+```
 
 
 ## 📬 Contact
