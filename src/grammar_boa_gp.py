@@ -559,7 +559,7 @@ class GrammarBayesOptGeneticfProgAlgorithm:
         # Get the Markov Blanket
         bn = bnc.bn
         mb = mbcalcul.compileMarkovBlanket(bn, "target")
-        gumimage.export(bn, "bnclook_" + image_path)
+        #gumimage.export(bn, "bnclook_" + image_path)
         gumimage.export(mb, image_path)
         mb.erase("target")   
 
