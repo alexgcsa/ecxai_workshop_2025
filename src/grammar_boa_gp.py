@@ -693,6 +693,19 @@ class GrammarBayesOptGeneticfProgAlgorithm:
           
             
         return sampled_pipelines
+
+    def tournament_selection(self, population, fitness_scores, population_size, tournament_size=2):
+        # Randomly select indices for the tournament
+        indices = []
+
+        while len(indices) < tournament_size:
+            idx = random.randint(0, population_size - 1)
+            indices.append(idx)
+
+        # Get the index of the best individual among the selected
+        best_idx = max(indices, key=lambda idx: fitness_scores[idx])  
+
+        return population[best_idx]
         
         
     def evolve(self):
@@ -852,13 +865,11 @@ class GrammarBayesOptGeneticfProgAlgorithm:
 
             while len(new_population) < self.population_size:
                 
-                idx1 = random.randint(0, len(self.population) - 1)
-                idx2 = random.randint(0, len(self.population) - 1)
-                while idx1 == idx2:
-                    idx2 = random.randint(0, len(self.population) - 1)
-                   
-                parent1 = self.population[idx1]
-                parent2 = self.population[idx2]
+                parent1 = self.tournament_selection(self.population, fitness_scores, self.population_size)
+                parent2 = self.tournament_selection(self.population, fitness_scores, self.population_size)
+
+                while parent1 == parent2:
+                    parent2 = self.tournament_selection(self.population, fitness_scores, self.population_size)
 
                 random_num = random.random()
                 if (random_num < self.crossover_mutation_rate):                    

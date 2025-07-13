@@ -1,5 +1,6 @@
 from sklearn.preprocessing import Normalizer, MaxAbsScaler, MinMaxScaler, RobustScaler, StandardScaler
 import fcntl
+import pandas as pd
 
 class ScalingTransformer:
     def __init__(self, training_df, testing_df, error_log):
